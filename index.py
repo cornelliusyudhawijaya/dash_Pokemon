@@ -6,6 +6,12 @@ import plotly.plotly as py
 from dash.dependencies import Input, Output, State
 from categoryplot import dfPokemon, listGoFunc, generateValuePlot,go
 from plotly import tools
+import plotly.graph_objs as go
+import pandas as pd
+import requests
+
+res= requests.get('http://api-pokemon-baron.herokuapp.com/pokemon')
+dfPokemon = pd.DataFrame(res.json(), columns = res.json()[0].keys())
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
